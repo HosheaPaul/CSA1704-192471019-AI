@@ -1,0 +1,10 @@
+def solve(n=8):
+    sol=[]
+    def place(row,pos):
+        if row==n: sol.append(pos); return
+        for col in range(n):
+            if all(pos[r]!=col and abs(pos[r]-col)!=row-r for r in range(row)):
+                place(row+1,pos+[col])
+    place(0,[])
+    return sol
+print("One solution:",solve()[0])
