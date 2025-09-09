@@ -1,0 +1,10 @@
+import itertools
+letters="SENDMORY"
+for p in itertools.permutations("0123456789",len(letters)):
+    d=dict(zip(letters,p))
+    if d['S']=='0' or d['M']=='0': continue
+    s=int(d['S']+d['E']+d['N']+d['D'])
+    m=int(d['M']+d['O']+d['R']+d['E'])
+    r=int(d['M']+d['O']+d['N']+d['E']+d['Y'])
+    if s+m==r:
+        print(s,"+",m,"=",r); break
