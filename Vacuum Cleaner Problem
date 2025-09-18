@@ -1,0 +1,6 @@
+rooms=["Dirty","Dirty"]
+for i in range(len(rooms)):
+    if rooms[i]=="Dirty":
+        print("Cleaned Room",i+1)
+        rooms[i]="Clean"
+print("Final State:",rooms)
