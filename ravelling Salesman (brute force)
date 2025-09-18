@@ -1,0 +1,10 @@
+mport itertools
+dist=[[0,10,15,20],[10,0,35,25],[15,35,0,30],[20,25,30,0]]
+n=len(dist); nodes=range(n)
+ans=float("inf")
+for perm in itertools.permutations(nodes[1:]):
+    path=(0,)+perm+(0,)
+    cost=sum(dist[path[i]][path[i+1]] for i in range(n))
+    ans=min(ans,cost)
+print("Min cost:",ans)
+
