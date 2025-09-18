@@ -1,0 +1,4 @@
+def minimax(depth,isMax):
+    if depth==0: return 0
+    return max(minimax(depth-1,False),0) if isMax else min(minimax(depth-1,True),0)
+print("Score:",minimax(3,True))
