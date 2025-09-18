@@ -1,0 +1,10 @@
+colors=['R','G','B']
+neighbors={'A':['B','C'],'B':['A','C'],'C':['A','B']}
+def solve(assign={}):
+    if len(assign)==len(neighbors): return assign
+    node=[n for n in neighbors if n not in assign][0]
+    for col in colors:
+        if all(assign.get(nei)!=col for nei in neighbors[node]):
+            res=solve(assign|{node:col})
+            if res: return res
+print(solve())
