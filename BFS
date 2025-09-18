@@ -1,0 +1,9 @@
+from collections import deque
+graph={1:[2,3],2:[4],3:[4],4:[]}
+def bfs(start):
+    q=deque([start]); seen={start}
+    while q:
+        node=q.popleft(); print(node,end=" ")
+        for nei in graph[node]:
+            if nei not in seen:
+                seen.add(nei); q.append(nei)
