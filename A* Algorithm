@@ -1,0 +1,11 @@
+from queue import PriorityQueue
+graph={'A':{'B':1,'C':3},'B':{'D':3},'C':{'D':1},'D':{}}
+h={'A':3,'B':2,'C':1,'D':0}
+def astar(start,goal):
+    q=PriorityQueue(); q.put((h[start],0,start,[start]))
+    while not q.empty():
+        f,g,node,path=q.get()
+        if node==goal: return path
+        for n,c in graph[node].items():
+            q.put((g+c+h[n],g+c,n,path+[n]))
+print(astar('A','D'))
